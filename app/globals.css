@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: #080407;
+  --color-foreground: #e7e2da;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ember: #e3b04b; /* oro de vela, más brillante para texto legible */
+  --color-blood: #7a1220; /* sangre seca (fondos/degradados) */
+  --color-amethyst: #3b1d4e; /* púrpura ritual */
+  --color-ash: #1a1416; /* ceniza */
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080407;
+  color: var(--color-foreground);
+  font-family: var(--font-body), Georgia, serif;
+  font-weight: 600; /* Cormorant es muy fina: subimos el grosor base para legibilidad */
+  letter-spacing: 0.01em;
+  font-size: 1.2rem; /* base más grande (~19px) */
+  line-height: 1.6;
+}
+
+::selection {
+  background: rgba(184, 134, 47, 0.35);
+  color: #fff;
+}
+
+/* niebla / textura de grano sutil sobre todo el sitio */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* parpadeo de vela */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  41% { opacity: 1; }
+  42% { opacity: 0.78; }
+  43% { opacity: 1; }
+  45% { opacity: 0.6; }
+  46% { opacity: 1; }
+  88% { opacity: 0.9; }
+}
+.flicker {
+  animation: flicker 6s infinite;
+}
+
+/* resplandor pulsante del sigilo */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
+}
+.pulse-glow {
+  animation: pulse-glow 7s ease-in-out infinite;
+}
+
+/* humo flotante */
+@keyframes drift {
+  0% { transform: translateY(0) translateX(0); opacity: 0.5; }
+  50% { transform: translateY(-24px) translateX(10px); opacity: 0.8; }
+  100% { transform: translateY(0) translateX(0); opacity: 0.5; }
+}
+.drift {
+  animation: drift 12s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 80s linear infinite;
 }
