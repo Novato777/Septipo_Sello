@@ -1,7 +1,7 @@
 const servicios = [
   {
     glifo: "♆",
-    nombre: "Amarres de Amor",
+    nombre: "Reencuentro de Amor",
     promesa: "El regreso del ser amado",
     texto:
       "Trabajo de unión profunda para reavivar lo que el tiempo y el orgullo apagaron. Se ata el sentir, no la voluntad: la persona vuelve porque su corazón lo pide.",
@@ -9,10 +9,10 @@ const servicios = [
   },
   {
     glifo: "☿",
-    nombre: "Limpia y Desamarre",
+    nombre: "Limpia y Liberación",
     promesa: "Corte de energías oscuras",
     texto:
-      "Barrida con hierbas, huevo y sahumerio para arrancar envidias, brujería ajena y maldiciones heredadas. Sales liviano, como recién nacido.",
+      "Barrida con hierbas, huevo y sahumerio para arrancar envidias, energías ajenas y cargas heredadas. Sales liviano, como recién nacido.",
     sello: "Baño de ruda y romero · sal del mar",
   },
   {
@@ -75,19 +75,37 @@ const testimonios = [
     texto:
       "Mi esposo se había ido de la casa. A las dos semanas del trabajo volvió pidiendo perdón. No sé cómo lo hizo la Madre, pero funcionó.",
     autor: "Marisol R.",
-    lugar: "Cali",
+    lugar: "Brooklyn, NY",
   },
   {
     texto:
       "Tenía el negocio cerrado por envidias. Después de la limpia entraron clientes como nunca. Estoy eternamente agradecida.",
     autor: "Don Hernán",
-    lugar: "Medellín",
+    lugar: "Chicago, IL",
   },
   {
     texto:
       "La lectura me dijo cosas que nadie sabía. Me advirtió de una traición y tenía toda la razón. Una mujer de verdad.",
     autor: "Camila T.",
-    lugar: "Bogotá",
+    lugar: "Los Ángeles, CA",
+  },
+  {
+    texto:
+      "Llevaba meses sin trabajo y con deudas encima. Después de la apertura de caminos me llamaron de dos empleos en la misma semana. Bendita sea.",
+    autor: "Roberto M.",
+    lugar: "Queens, NY",
+  },
+  {
+    texto:
+      "Mi pareja y yo estábamos al borde de la separación por culpa de terceros. El trabajo nos volvió a unir y hoy estamos mejor que nunca.",
+    autor: "Yesenia C.",
+    lugar: "San Diego, CA",
+  },
+  {
+    texto:
+      "Sentía la casa pesada y nada me salía bien. Después de la limpia todo cambió: el ambiente, mi ánimo y hasta la suerte. Mil gracias.",
+    autor: "Patricia L.",
+    lugar: "Sacramento, CA",
   },
 ];
 
@@ -134,10 +152,15 @@ export default function Home() {
       {/* NAV */}
       <header className="sticky top-0 z-40 border-b border-white/5 bg-[#080407]/70 backdrop-blur-md">
         <nav className="mx-auto flex w-full max-w-[88rem] items-center justify-between px-6 py-4">
-          <a href="#" className="flex items-center gap-3">
-            <Sigilo className="h-9 w-9 text-ember flicker" />
-            <span className="font-[family-name:var(--font-display)] text-sm font-semibold uppercase tracking-[0.25em] text-stone-100">
-              El Séptimo Sello
+          <a href="#" className="flex items-center gap-3 sm:gap-4">
+            <Sigilo className="h-11 w-11 text-ember flicker sm:h-14 sm:w-14" />
+            <span className="flex flex-col leading-none">
+              <span className="font-[family-name:var(--font-display)] text-xl font-bold uppercase tracking-[0.18em] text-stone-50 sm:text-2xl">
+                El Séptimo Sello
+              </span>
+              <span className="mt-1 text-[0.6rem] uppercase tracking-[0.3em] text-ember/80 sm:text-xs">
+                Casa esotérica
+              </span>
             </span>
           </a>
           <div className="hidden items-center gap-8 text-sm uppercase tracking-widest text-stone-300 md:flex">
@@ -170,15 +193,23 @@ export default function Home() {
             Tradición ancestral · +30 años
           </span>
 
-          <h1 className="relative z-10 max-w-5xl font-[family-name:var(--font-display)] text-6xl font-semibold leading-[1.05] tracking-tight text-stone-50 sm:text-7xl md:text-8xl">
-            Donde la magia
+          <h1 className="relative z-10 max-w-5xl font-[family-name:var(--font-display)] text-6xl font-bold uppercase leading-[1.05] tracking-tight text-stone-50 sm:text-7xl md:text-8xl">
+            El Séptimo
             <span className="block bg-gradient-to-b from-ember via-amber-200 to-ember bg-clip-text text-transparent">
-              se siente de verdad
+              Sello
             </span>
           </h1>
 
+          <div className="relative z-10 mt-7 flex items-center justify-center gap-4">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-ember/60 sm:w-14" />
+            <p className="font-[family-name:var(--font-display)] text-xl italic tracking-wide text-ember/90 sm:text-2xl">
+              Donde la magia se siente de verdad
+            </p>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-ember/60 sm:w-14" />
+          </div>
+
           <p className="relative z-10 mt-8 max-w-3xl font-[family-name:var(--font-body)] text-2xl leading-relaxed text-stone-200 sm:text-3xl">
-            Amarres, limpias y trabajos de alta brujería para regresar al ser
+            Reencuentros, limpias y rituales de alta magia para regresar al ser
             amado, romper la mala suerte y abrir tus caminos. Lo que otros
             prometen, aquí se{" "}
             <em className="font-semibold italic text-ember">cumple</em>.
@@ -316,19 +347,19 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
+          <div className="mt-16 grid grid-cols-2 gap-6">
             {testimonios.map((t) => (
               <figure
                 key={t.autor}
-                className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8"
+                className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 sm:p-6"
               >
-                <div className="mb-4 text-ember" aria-hidden>
+                <div className="mb-3 text-sm text-ember" aria-hidden>
                   ★★★★★
                 </div>
-                <blockquote className="flex-1 font-[family-name:var(--font-body)] text-2xl italic leading-relaxed text-stone-200">
+                <blockquote className="flex-1 font-[family-name:var(--font-body)] text-base italic leading-relaxed text-stone-200 sm:text-lg">
                   “{t.texto}”
                 </blockquote>
-                <figcaption className="mt-6 text-sm uppercase tracking-widest text-stone-400">
+                <figcaption className="mt-4 text-xs uppercase tracking-widest text-stone-400">
                   {t.autor} · <span className="text-stone-500">{t.lugar}</span>
                 </figcaption>
               </figure>
@@ -383,8 +414,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-center text-xs leading-relaxed text-stone-400">
-            <p className="mb-2 font-semibold uppercase tracking-widest text-stone-300">
+          <div className="mt-10 rounded-2xl border border-white/5 bg-white/[0.02] p-6 text-left text-sm leading-relaxed text-stone-400 sm:p-8 sm:text-center sm:text-xs">
+            <p className="mb-3 text-center font-semibold uppercase tracking-widest text-stone-300">
               Aviso
             </p>
             Este sitio y sus servicios se ofrecen con fines de{" "}

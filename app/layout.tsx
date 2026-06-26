@@ -16,9 +16,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "El Séptimo Sello · Brujería Mayor & Trabajos Espirituales",
+  title: "El Séptimo Sello · Magia Mayor & Trabajos Espirituales",
   description:
-    "Amarres, limpias, lecturas y trabajos de alta magia con más de 30 años de tradición. Resultados sentidos, energía real, discreción absoluta.",
+    "Reencuentros, limpias, lecturas y rituales de alta magia con más de 30 años de tradición. Resultados sentidos, energía real, discreción absoluta.",
 };
 
 export default function RootLayout({

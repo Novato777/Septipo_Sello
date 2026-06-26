@@ -45,7 +45,7 @@ export default function OgImage() {
           El Séptimo Sello
         </div>
         <div style={{ marginTop: 16, fontSize: 30, color: "#a8a29e" }}>
-          Brujería Mayor · Amarres · Limpias · Tarot
+          Magia Mayor · Reencuentros · Limpias · Tarot
         </div>
       </div>
     ),
